@@ -20,3 +20,15 @@ describe('asyncSumOfArray',()=>{
     await expect(asyncSumOfArray([1,2])).resolves.toBe(3);
   })
 })
+
+describe('asyncSumOfArraySometimesZero',()=>{
+  const DatabaseMock = jest.fn()
+  .mockImplementationOnce(()=>({save:()=>true}))
+  // .mockImplementationOnce(()=>{throw new Error('failed')})
+  test('normal',async()=>{
+    await expect(asyncSumOfArraySometimesZero([1,2])).resolves.toBe(3);
+  })
+  test('error',async()=>{
+    await expect(asyncSumOfArraySometimesZero([1,2])).resolves.toBe(3);
+  })
+})
